@@ -132,10 +132,11 @@ echo
 echo '------------------------'
 echo '|  Next steps to take  |'
 echo '------------------------'
-echo "- Run the following commands from the base directory:"
-echo "      test -f ${SECRETS_FILE} && cp ${SECRETS_FILE} secrets.yaml"
-echo "      test -f ${SEALED_SECRETS_FILE} && cp ${SEALED_SECRETS_FILE} sealed-secrets.yaml"
-echo "      ./flux-command.sh > /tmp/deploy.yaml"
+echo "- Run the following commands from the k8s-configs directory:"
+echo "      cd k8s-configs"
+echo "      test -f ${SECRETS_FILE} && cp ${SECRETS_FILE} base/secrets.yaml"
+echo "      test -f ${SEALED_SECRETS_FILE} && cp ${SEALED_SECRETS_FILE} base/sealed-secrets.yaml"
+echo "      ./flux-command.sh \${REGION_DIR} > /tmp/deploy.yaml"
 echo "      grep 'kind: Secret' /tmp/deploy.yaml # should not have any hits"
 echo "      grep 'kind: SealedSecret' /tmp/deploy.yaml # should have hits"
 echo "- Push all modified files into the cluster state repo"
