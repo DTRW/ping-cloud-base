@@ -65,8 +65,5 @@ configMapGenerator:
 
 patchesStrategicMerge:
 
-### All secrets used by supporting tools ###
-- secrets.yaml
-
 ### Regional enablement - remove admins, backups, etc. from secondary ###
 - ../../base/ping-cloud/remove-from-secondary-patch.yaml
